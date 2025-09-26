@@ -1,0 +1,201 @@
+// ===========================================
+// PORTFOLIO WEB - MAIN SCSS FILE
+// ===========================================
+
+// Importar los archivos SCSS en su respectivo orden
+@use "sass:color";
+@use 'variables' as *;
+
+
+// ===========================================
+// ESTILOS GLOBALES Y BASE
+// ===========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-dark;
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+// Contenedor principal
+.container-fluid {
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+
+  @media (min-width: $breakpoint-lg) {
+    padding-left: $spacing-xl;
+    padding-right: $spacing-xl;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+
+h1 {
+  font-size: $font-size-5xl;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-4xl;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-3xl;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-2xl;
+}
+
+h5 {
+  font-size: $font-size-xl;
+}
+
+h6 {
+  font-size: $font-size-lg;
+}
+
+// Párrafos
+p {
+  margin-bottom: $spacing-md;
+  line-height: 1.7;
+}
+
+// Enlaces
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+// Listas
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Imágenes
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+// Botones personalizados
+.btn-custom {
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-lg;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition: all $transition-normal;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &.btn-primary-custom {
+    background-color: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+      border-color: color.adjust($primary-color, $lightness: -10%);
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &.btn-outline-custom {
+    background-color: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &.btn-accent-custom {
+    background-color: $accent-color;
+    color: $white;
+    border-color: $accent-color;
+
+    &:hover {
+      background-color: color.adjust($accent-color, $lightness: -10%);
+      border-color: color.adjust($accent-color, $lightness: -10%);
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg; 
+    }    
+  }
+}
+
+// Clases de animación
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+
+  &.animate-fade-up {
+    transform: translateY(30px);
+  }
+
+  &.animate-fade-left {
+    transform: translateX(-30px);
+  }
+
+  &.animate-fade-right {
+    transform: translateX(30px);
+  }
+
+  &.animated {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
