@@ -2,10 +2,17 @@
 // PORTFOLIO WEB - MAIN SCSS FILE
 // ===========================================
 
-// Importar los archivos SCSS en su respectivo orden
 @use "sass:color";
-@use 'variables' as *;
+@use "variables" as *;
 
+@use "a-media";
+@use "abaut";
+@use "animaciones";
+@use "cambios";
+@use "hero";
+@use "navegacion";
+@use "section";
+@use "soluciones";
 
 // ===========================================
 // ESTILOS GLOBALES Y BASE
