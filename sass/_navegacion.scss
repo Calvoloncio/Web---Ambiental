@@ -1,0 +1,51 @@
+// ===========================================
+// NAVEGACIÓN
+// ===========================================
+ 
+.navbar {
+  background-color: rgba($white, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+  padding: $spacing-md 0;
+ 
+  .navbar-brand {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $secondary-color;
+    display: flex;
+    align-items: center;
+ 
+    i {
+      color: $primary-color;
+      font-size: $font-size-2xl;
+    }
+ 
+    &:hover {
+      color: $primary-color;
+    }
+  }
+ 
+  .nav-link {
+    color: $text-dark;
+    font-weight: $font-weight-medium;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    transition: all $transition-fast;
+ 
+    &:hover {
+      color: $primary-color;
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+ 
+  .navbar-toggler {
+    border: none;
+    padding: $spacing-xs $spacing-sm;
+ 
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+ 

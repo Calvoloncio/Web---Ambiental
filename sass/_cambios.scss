@@ -1,0 +1,69 @@
+// ===========================================
+// CAMBIOS SECTION
+// ===========================================
+
+.challenges-section {
+  background-color: $white;
+}
+
+.challenge-card {
+  background: $white;
+  padding: $spacing-2xl;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-md;
+  transition: all $transition-normal;
+  height: 100%;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $shadow-xl;
+    border-color: rgba($primary-color, 0.2);
+  }
+
+  .challenge-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacing-lg;
+
+    i {
+      font-size: $font-size-2xl;
+      color: $white;
+    }
+  }
+
+  h3 {
+    color: $text-dark;
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $medium-gray;
+    margin-bottom: $spacing-lg;
+  }
+
+  .challenge-impacts {
+    list-style: none;
+    padding: 0;
+    margin-bottom: $spacing-lg;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: $spacing-sm;
+      color: $text-dark;
+
+      i {
+        color: $primary-color;
+        margin-right: $spacing-sm;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}

@@ -1,11 +1,18 @@
 // ===========================================
 // PORTFOLIO WEB - MAIN SCSS FILE
 // ===========================================
+// Importar variables primero
+@import "variables";
 
-// Importar los archivos SCSS en su respectivo orden
-@use "sass:color";
-@use 'variables' as *;
-
+// Importar los demás archivos
+@import "a-media";
+@import "abaut";
+@import "animaciones";
+@import "cambios";
+@import "hero";
+@import "navegacion";
+@import "section";
+@import "soluciones";
 
 // ===========================================
 // ESTILOS GLOBALES Y BASE
@@ -45,13 +52,13 @@ body {
     padding-right: $spacing-xl;
   }
 }
-
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-primary;
   font-weight: $font-weight-bold;
   line-height: 1.2;
   margin-bottom: $spacing-md;
 }
+
 
 h1 {
   font-size: $font-size-5xl;
@@ -123,502 +130,8 @@ img {
   display: block;
 }
 
-// ===========================================
-// NAVEGACIÓN
-// ===========================================
 
-.navbar {
-  background-color: rgba($white, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: $shadow-sm;
-  transition: all $transition-normal;
-  padding: $spacing-md 0;
-
-  .navbar-brand {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $secondary-color;
-    display: flex;
-    align-items: center;
-
-    i {
-      color: $primary-color;
-      font-size: $font-size-2xl;
-    }
-
-    &:hover {
-      color: $primary-color;
-    }
-  }
-
-  .nav-link {
-    color: $text-dark;
-    font-weight: $font-weight-medium;
-    padding: $spacing-sm $spacing-md;
-    border-radius: $border-radius-md;
-    transition: all $transition-fast;
-
-    &:hover {
-      color: $primary-color;
-      background-color: rgba($primary-color, 0.1);
-    }
-  }
-
-  .navbar-toggler {
-    border: none;
-    padding: $spacing-xs $spacing-sm;
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-}
-
-// ===========================================
-// HERO SECTION
-// ===========================================
-
-.hero-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, $background-neutral 0%, rgba($primary-color, 0.1) 100%);
-  overflow: hidden;
-
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(46,137,2,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
-  }
-
-  .hero-content {
-    z-index: 2;
-    position: relative;
-  }
-
-  .hero-title {
-    font-size: clamp($font-size-4xl, 5vw, $font-size-5xl);
-    font-weight: $font-weight-bold;
-    color: $text-dark;
-    margin-bottom: $spacing-lg;
-    line-height: 1.1;
-
-    .text-title {
-      color: $primary-color;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, $primary-color, $accent-color);
-        border-radius: $border-radius-sm;
-      }
-    }
-  }
-
-  .hero-description {
-    font-size: $font-size-lg;
-    color: $medium-gray;
-    margin-bottom: $spacing-2xl;
-    max-width: 500px;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: $spacing-md;
-    flex-wrap: wrap;
-  }
-
-  .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
-    @media (max-width: $breakpoint-lg) {
-      margin-top: $spacing-3xl;
-    }
-  }
-
-  .floating-card {
-    background: $white;
-    padding: $spacing-2xl;
-    border-radius: $border-radius-2xl;
-    box-shadow: $shadow-xl;
-    text-align: center;
-    max-width: 300px;
-    animation: float 6s ease-in-out infinite;
-
-    i {
-      font-size: $font-size-5xl;
-      color: $primary-color;
-      margin-bottom: $spacing-md;
-    }
-
-    h4 {
-      color: $text-dark;
-      margin-bottom: $spacing-sm;
-    }
-
-    p {
-      color: $medium-gray;
-      margin-bottom: 0;
-    }
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-// ===========================================
-// SECTIONS GENERALES
-// ===========================================
-
-section {
-  padding: $spacing-5xl 0;
-
-  &:nth-child(even) {
-    background-color: $background-neutral;
-  }
-}
-
-.section-title {
-  font-size: $font-size-4xl;
-  font-weight: $font-weight-bold;
-  color: $text-dark;
-  text-align: center;
-  margin-bottom: $spacing-lg;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, $primary-color, $accent-color);
-    border-radius: $border-radius-sm;
-  }
-}
-
-.section-description {
-  font-size: $font-size-lg;
-  color: $medium-gray;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-// ===========================================
-// CHALLENGES SECTION
-// ===========================================
-
-.challenges-section {
-  background-color: $white;
-}
-
-.challenge-card {
-  background: $white;
-  padding: $spacing-2xl;
-  border-radius: $border-radius-xl;
-  box-shadow: $shadow-md;
-  transition: all $transition-normal;
-  height: 100%;
-  border: 2px solid transparent;
-
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: $shadow-xl;
-    border-color: rgba($primary-color, 0.2);
-  }
-
-  .challenge-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, $primary-color, $accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: $spacing-lg;
-
-    i {
-      font-size: $font-size-2xl;
-      color: $white;
-    }
-  }
-
-  h3 {
-    color: $text-dark;
-    font-size: $font-size-2xl;
-    margin-bottom: $spacing-md;
-  }
-
-  p {
-    color: $medium-gray;
-    margin-bottom: $spacing-lg;
-  }
-
-  .challenge-impacts {
-    list-style: none;
-    padding: 0;
-    margin-bottom: $spacing-lg;
-
-    li {
-      display: flex;
-      align-items: center;
-      margin-bottom: $spacing-sm;
-      color: $text-dark;
-
-      i {
-        color: $primary-color;
-        margin-right: $spacing-sm;
-        font-size: $font-size-sm;
-      }
-    }
-  }
-}
-
-// ===========================================
-// SOLUTIONS SECTION
-// ===========================================
-
-.solutions-section {
-  background-color: $background-neutral;
-}
-
-.solution-card {
-  background: $white;
-  padding: $spacing-2xl;
-  border-radius: $border-radius-xl;
-  box-shadow: $shadow-md;
-  transition: all $transition-normal;
-  height: 100%;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, $primary-color, $accent-color);
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: $shadow-xl;
-  }
-
-  .solution-number {
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $primary-color;
-    margin-bottom: $spacing-md;
-  }
-
-  h4 {
-    color: $text-dark;
-    margin-bottom: $spacing-md;
-  }
-
-  p {
-    color: $medium-gray;
-    margin-bottom: 0;
-  }
-}
-
-// ===========================================
-// ABOUT SECTION
-// ===========================================
-
-.about-section {
-  background-color: $white;
-}
-
-.about-content {
-  .section-title {
-    text-align: left;
-
-    &::after {
-      left: 0;
-      transform: none;
-    }
-  }
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-lg;
-  margin-top: $spacing-2xl;
-
-  @media (max-width: $breakpoint-sm) {
-    grid-template-columns: 1fr;
-    gap: $spacing-md;
-  }
-}
-
-.stat-item {
-  text-align: center;
-  padding: $spacing-lg;
-  background: rgba($primary-color, 0.05);
-  border-radius: $border-radius-lg;
-  border: 2px solid rgba($primary-color, 0.1);
-
-  .stat-number {
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    color: $primary-color;
-    margin-bottom: $spacing-sm;
-  }
-
-  .stat-label {
-    font-size: $font-size-sm;
-    color: $medium-gray;
-    font-weight: $font-weight-medium;
-  }
-}
-
-.about-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .image-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-    background: linear-gradient(135deg, $primary-color, $accent-color);
-    border-radius: $border-radius-xl;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    text-align: center;
-
-    i {
-      font-size: $font-size-5xl;
-      margin-bottom: $spacing-md;
-    }
-
-    p {
-      font-size: $font-size-lg;
-      font-weight: $font-weight-medium;
-      margin: 0;
-    }
-  }
-}
-
-// ===========================================
-// FOOTER
-// ===========================================
-
-.footer {
-  background-color: $text-dark;
-  color: $white;
-  padding: $spacing-3xl 0 $spacing-lg;
-
-  .footer-brand {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-md;
-    display: flex;
-    align-items: center;
-
-    i {
-      color: $primary-color;
-      font-size: $font-size-2xl;
-    }
-  }
-
-  p {
-    color: rgba($white, 0.7);
-    margin-bottom: $spacing-lg;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: $spacing-lg;
-    margin-bottom: $spacing-lg;
-    flex-wrap: wrap;
-
-    @media (max-width: $breakpoint-sm) {
-      justify-content: center;
-    }
-
-    a {
-      color: rgba($white, 0.8);
-      transition: color $transition-fast;
-
-      &:hover {
-        color: $primary-color;
-      }
-    }
-  }
-
-  .footer-social {
-    display: flex;
-    gap: $spacing-md;
-
-    @media (max-width: $breakpoint-sm) {
-      justify-content: center;
-    }
-
-    a {
-      width: 40px;
-      height: 40px;
-      background: rgba($white, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba($white, 0.8);
-      transition: all $transition-fast;
-
-      &:hover {
-        background: $primary-color;
-        color: $white;
-        transform: translateY(-2px);
-      }
-    }
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba($white, 0.1);
-    padding-top: $spacing-lg;
-    margin-top: $spacing-2xl;
-    text-align: center;
-
-    p {
-      color: rgba($white, 0.6);
-      margin: 0;
-      font-size: $font-size-sm;
-    }
-  }
-}
-
-// ===========================================
-// BOTONES PERSONALIZADOS
-// ===========================================
-
+// Botones personalizados
 .btn-custom {
   padding: $spacing-md $spacing-xl;
   border-radius: $border-radius-lg;
@@ -630,7 +143,6 @@ section {
   gap: $spacing-sm;
   border: 2px solid transparent;
   cursor: pointer;
-  font-size: $font-size-base;
 
   &.btn-primary-custom {
     background-color: $primary-color;
@@ -642,7 +154,6 @@ section {
       border-color: color.adjust($primary-color, $lightness: -10%);
       transform: translateY(-2px);
       box-shadow: $shadow-lg;
-      color: $white;
     }
   }
 
@@ -668,16 +179,12 @@ section {
       background-color: color.adjust($accent-color, $lightness: -10%);
       border-color: color.adjust($accent-color, $lightness: -10%);
       transform: translateY(-2px);
-      box-shadow: $shadow-lg;
-      color: $white;
+      box-shadow: $shadow-lg; 
     }    
   }
 }
 
-// ===========================================
-// ANIMACIONES
-// ===========================================
-
+// Clases de animación
 .animate-on-scroll {
   opacity: 0;
   transition: all 0.6s ease-out;
@@ -699,51 +206,3 @@ section {
     transform: translate(0, 0);
   }
 }
-
-// ===========================================
-// RESPONSIVE UTILITIES
-// ===========================================
-
-@media (max-width: $breakpoint-lg) {
-  .hero-section {
-    text-align: center;
-  }
-  
-  .about-content {
-    text-align: center;
-    margin-bottom: $spacing-2xl;
-    
-    .section-title::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-}
-
-@media (max-width: $breakpoint-md) {
-  section {
-    padding: $spacing-4xl 0;
-  }
-  
-  .hero-section {
-    padding: $spacing-3xl 0;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .btn-custom {
-    width: 100%;
-    justify-content: center;
-    max-width: 280px;
-  }
-}
-

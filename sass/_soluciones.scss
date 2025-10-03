@@ -1,0 +1,52 @@
+// ===========================================
+// SOLUCIONES SECTION
+// ===========================================
+ 
+.solutions-section {
+  background-color: $background-neutral;
+}
+ 
+.solution-card {
+  background: $white;
+  padding: $spacing-2xl;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-md;
+  transition: all $transition-normal;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+ 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $accent-color);
+  }
+ 
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
+  }
+ 
+  .solution-number {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+ 
+  h4 {
+    color: $text-dark;
+    margin-bottom: $spacing-md;
+  }
+ 
+  p {
+    color: $medium-gray;
+    margin-bottom: 0;
+  }
+}
+ 
