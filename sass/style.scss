@@ -1,18 +1,18 @@
 // ===========================================
 // PORTFOLIO WEB - MAIN SCSS FILE
 // ===========================================
-// Importar variables primero
-@import "variables";
 
-// Importar los demás archivos
-@import "a-media";
-@import "abaut";
-@import "animaciones";
-@import "cambios";
-@import "hero";
-@import "navegacion";
-@import "section";
-@import "soluciones";
+// use los demás archivos
+@import "./variables";
+@import "./a-media";
+@import "./abaut";
+@import "./botones";
+@import "./cambios";
+@import "./footer";
+@import "./hero";
+@import "./navegacion";
+@import "./section";
+@import "./soluciones";
 
 // ===========================================
 // ESTILOS GLOBALES Y BASE
@@ -109,7 +109,7 @@ a {
   transition: color $transition-fast;
 
   &:hover {
-    color: color.adjust($primary-color, $lightness: -10%);
+    color: darken($primary-color, 10%);
   }
 }
 
@@ -150,8 +150,8 @@ img {
     border-color: $primary-color;
 
     &:hover {
-      background-color: color.adjust($primary-color, $lightness: -10%);
-      border-color: color.adjust($primary-color, $lightness: -10%);
+      background-color: darken($primary-color, 10%);
+      border-color: darken($primary-color, 10%);
       transform: translateY(-2px);
       box-shadow: $shadow-lg;
     }
@@ -176,8 +176,8 @@ img {
     border-color: $accent-color;
 
     &:hover {
-      background-color: color.adjust($accent-color, $lightness: -10%);
-      border-color: color.adjust($accent-color, $lightness: -10%);
+      background-color: darken($accent-color, 10%);
+      border-color: darken($accent-color, 10%);
       transform: translateY(-2px);
       box-shadow: $shadow-lg; 
     }    

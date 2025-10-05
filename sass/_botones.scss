@@ -21,8 +21,8 @@
     border-color: $primary-color;
  
     &:hover {
-      background-color: color.adjust($primary-color, $lightness: -10%);
-      border-color: color.adjust($primary-color, $lightness: -10%);
+      background-color: darken($primary-color, 10%);
+      border-color: darken($primary-color, 10%);
       transform: translateY(-2px);
       box-shadow: $shadow-lg;
       color: $white;
@@ -48,8 +48,8 @@
     border-color: $accent-color;
  
     &:hover {
-      background-color: color.adjust($accent-color, $lightness: -10%);
-      border-color: color.adjust($accent-color, $lightness: -10%);
+      background-color: darken($accent-color, 10%);
+      border-color: darken($accent-color, 10%);
       transform: translateY(-2px);
       box-shadow: $shadow-lg;
       color: $white;
